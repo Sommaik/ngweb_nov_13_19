@@ -1,0 +1,24 @@
+<form #simpleForm="ngForm" (submit)="onFormSubmit(simpleForm)">
+  <div class="form-row">
+    <div class="col-sm-12">
+      <label for="first">First</label>
+      <input id="first" class="form-control"
+        [ngClass]="{'is-invalid': first.invalid && first.dirty, 'is-valid': first.valid}" type="text" name="first"
+        ngModel required minlength="5" #first="ngModel" />
+      <div class="invalid-feedback">
+        Please input first..
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <label for="second">Second</label>
+      <input id="second" class="form-control" type="text" name="second" ngModel required #second="ngModel" />
+      <div class="invalid-feedback">
+        Please choose second.
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <button class="btn btn-primary" [ngClass]="{disabled: simpleForm.invalid}"
+        [disabled]="simpleForm.invalid">Save</button>
+    </div>
+  </div>
+</form>

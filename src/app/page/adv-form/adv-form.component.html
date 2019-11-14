@@ -1,0 +1,25 @@
+<form [formGroup]="simpleForm" (submit)="onFormSubmit()">
+  <div class="form-row">
+    <div class="col-sm-12">
+      <label for="first">First</label>
+      <input id="first" class="form-control" formControlName="first"
+        [ngClass]="{'is-invalid': simpleForm.get('first').invalid && simpleForm.get('first').dirty, 'is-valid': simpleForm.get('first').valid}"
+        type="text" />
+      <div class="invalid-feedback">
+        Please input first..
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <label for="second">Second</label>
+      <input id="second" class="form-control" type="text" formControlName="second"
+        [ngClass]="{'is-invalid': simpleForm.get('second').invalid && simpleForm.get('second').dirty, 'is-valid': simpleForm.get('second').valid}" />
+      <div class="invalid-feedback">
+        Please choose second.
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <button class="btn btn-primary" [ngClass]="{disabled: simpleForm.invalid}"
+        [disabled]="simpleForm.invalid">Save</button>
+    </div>
+  </div>
+</form>
