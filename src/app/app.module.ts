@@ -8,13 +8,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SimpleFormComponent } from './page/simple-form/simple-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdvFormComponent } from './page/adv-form/adv-form.component';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SimpleFormComponent,
-    AdvFormComponent
+    AdvFormComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,5 @@
-<app-home [name]="title"></app-home>
-<app-simple-form></app-simple-form>
-<app-adv-form *ngIf="isShowAdvForm else saveResult" (formSubmit)="onAdvFormSubmit($event)"></app-adv-form>
-
-<ng-template #saveResult>
-  <button (click)="onInputAgainClick()">Input Again</button>
-</ng-template>
-
-<div [ngSwitch]="caseExp">
-  <ng-template ngSwitchCase="A">
-    <app-home name="My First Home app"></app-home>
-  </ng-template>
-  <ng-template ngSwitchCase="B">B value</ng-template>
-  <ng-template ngSwitchDefault>Default value</ng-template>
-</div>
+<ul>
+  <li appHighlight>one</li>
+  <li appHighlight>two</li>
+  <li appHighlight>three</li>
+</ul>
