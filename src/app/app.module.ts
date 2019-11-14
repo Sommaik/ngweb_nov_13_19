@@ -11,6 +11,10 @@ import { AdvFormComponent } from './page/adv-form/adv-form.component';
 import { HighlightDirective } from './shared/directive/highlight.directive';
 import { TrimCreditCardPipe } from './shared/pipe/trim-credit-card.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { AdminComponent } from './page/admin/admin.component';
+import { BsDropdownModule, BsDropdownDirective } from 'ngx-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     SimpleFormComponent,
     AdvFormComponent,
     HighlightDirective,
-    TrimCreditCardPipe
+    TrimCreditCardPipe,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ModalModule.forRoot(),
+    BsDropdownModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

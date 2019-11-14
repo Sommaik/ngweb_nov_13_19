@@ -5,9 +5,7 @@
       <input id="first" class="form-control"
         [ngClass]="{'is-invalid': first.invalid && first.dirty, 'is-valid': first.valid}" type="text" name="email"
         ngModel required #first="ngModel" />
-      <div class="invalid-feedback">
-        Please input first..
-      </div>
+      <div class="invalid-feedback">{{errorMessage}}</div>
     </div>
     <div class="col-sm-12">
       <label for="second">Password</label>
@@ -23,3 +21,15 @@
   </div>
 </form>
 <button class="btn btn-link" (click)="onRegisterClick()">create new account</button>
+
+<ng-template #errorDialog>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Login</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    This is a modal.
+  </div>
+</ng-template>
