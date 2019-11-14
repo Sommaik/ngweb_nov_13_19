@@ -9,6 +9,8 @@ export class AppComponent {
   title = 'ngweb';
   isShowAdvForm = true;
   caseExp = 'A';
+  price = 12345.58;
+  currentDate = new Date();
 
   onAdvFormSubmit(formValue) {
     console.log('in app form submit');

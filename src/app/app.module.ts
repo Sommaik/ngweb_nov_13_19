@@ -9,6 +9,7 @@ import { SimpleFormComponent } from './page/simple-form/simple-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdvFormComponent } from './page/adv-form/adv-form.component';
 import { HighlightDirective } from './highlight.directive';
+import { TrimCreditCardPipe } from './trim-credit-card.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HighlightDirective } from './highlight.directive';
     HomeComponent,
     SimpleFormComponent,
     AdvFormComponent,
-    HighlightDirective
+    HighlightDirective,
+    TrimCreditCardPipe
   ],
   imports: [
     BrowserModule,
