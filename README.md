@@ -32,3 +32,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 # output
 123XXXXXXXXXX456
 123##########456
+
+# create user service
+npm run ng g s shared/service/user

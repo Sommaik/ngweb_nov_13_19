@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { UserService } from 'src/app/shared/service/user.service';
 
 @Component({
   selector: 'app-simple-form',
@@ -8,7 +9,7 @@ import { NgForm } from '@angular/forms';
 })
 export class SimpleFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
@@ -16,6 +17,7 @@ export class SimpleFormComponent implements OnInit {
   onFormSubmit(simpleForm: NgForm) {
     if (simpleForm.valid) {
       console.log('send data to server');
+      this.userService.login(simpleForm.value).subscribe();
     } else {
       console.log('invalid form');
     }

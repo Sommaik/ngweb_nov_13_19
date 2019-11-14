@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { UserService } from 'src/app/shared/service/user.service';
 
 @Component({
   selector: 'app-adv-form',
@@ -9,13 +10,15 @@ import { FormBuilder } from '@angular/forms';
 export class AdvFormComponent implements OnInit {
 
   simpleForm = this.fb.group({
-    first: [],
-    second: []
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(8)]]
   });
 
   @Output() formSubmit: EventEmitter<any> = new EventEmitter();
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService) { }
 
   ngOnInit() {
   }
@@ -24,6 +27,7 @@ export class AdvFormComponent implements OnInit {
     if (this.simpleForm.valid) {
       console.log('send data to server');
       this.formSubmit.emit(this.simpleForm.value);
+      this.userService.register(this.simpleForm.value).subscribe();
     } else {
       console.log('invalid form value');
     }
