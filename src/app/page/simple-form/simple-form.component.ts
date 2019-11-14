@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from 'src/app/shared/service/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-simple-form',
@@ -9,7 +10,10 @@ import { UserService } from 'src/app/shared/service/user.service';
 })
 export class SimpleFormComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -21,6 +25,10 @@ export class SimpleFormComponent implements OnInit {
     } else {
       console.log('invalid form');
     }
+  }
+
+  onRegisterClick() {
+    this.router.navigate(['register']);
   }
 
 }
