@@ -1,1 +1,25 @@
-<p>company-form works!</p>
+<form [formGroup]="simpleForm" (submit)="onFormSubmit()">
+  <div class="form-row">
+    <div class="col-sm-12">
+      <label for="code">Code</label>
+      <input id="code" class="form-control" formControlName="compCode"
+        [ngClass]="{'is-invalid': simpleForm.get('compCode').invalid && simpleForm.get('compCode').dirty, 'is-valid': simpleForm.get('compCode').valid}"
+        type="text" />
+      <div class="invalid-feedback">
+        Please input code
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <label for="name">Name</label>
+      <input id="name" class="form-control" type="text" formControlName="compName"
+        [ngClass]="{'is-invalid': simpleForm.get('compName').invalid && simpleForm.get('compName').dirty, 'is-valid': simpleForm.get('compName').valid}" />
+      <div class="invalid-feedback">
+        Please input name.
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <button class="btn btn-primary" [ngClass]="{disabled: simpleForm.invalid}"
+        [disabled]="simpleForm.invalid">Save</button>
+    </div>
+  </div>
+</form>

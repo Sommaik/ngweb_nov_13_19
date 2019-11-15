@@ -18,4 +18,12 @@ export class CompanyService {
       }
     });
   }
+
+  add(company: Company): Observable<any> {
+    return this.http.post(`${environment.API_ENPOINT}/company`, company, {
+      headers: {
+        Authorization: 'bearer ' + sessionStorage.getItem('TOKEN')
+      }
+    });
+  }
 }

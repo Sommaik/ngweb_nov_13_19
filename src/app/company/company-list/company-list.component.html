@@ -1,12 +1,17 @@
+<button class="btn btn-link" (click)="onAddClick()">Create new company</button>
 <table class="table">
   <tr>
+    <th>Edit</th>
     <th>No.</th>
     <th>Code</th>
     <th>Name</th>
+    <th>Delete</th>
   </tr>
   <tr *ngFor="let comp of companys | async; let index = index;">
+    <td><button class="btn btn-link" (click)="onEditClick(comp._id)">Edit</button></td>
     <td>{{index + 1}}</td>
     <td>{{comp.compCode}}</td>
     <td>{{comp.compName}}</td>
+    <td><button class="btn btn-link" (click)="onDeleteClick(comp._id)">Delete</button></td>
   </tr>
 </table>
