@@ -1,1 +1,23 @@
-<p>customer-list works!</p>
+<button class="btn btn-link" (click)="onNewClick()">Create new customer</button>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Edit</th>
+      <th>No</th>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Company</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customer$ | async; let index = index;">
+      <td><button class="btn btn-link" (click)="onEditClick(customer._id)">Edit</button></td>
+      <td>{{ index + 1}}</td>
+      <td>{{ customer.custCode}}</td>
+      <td>{{ customer.custName}}</td>
+      <td>{{ (customer.compId | company | async)?.compName }}</td>
+      <td><button class="btn btn-link" (click)="onDeleteClick(customer._id)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,1 +1,31 @@
-<p>customer-form works!</p>
+<form [formGroup]="customerForm" (submit)="onFormSubmit()">
+  <div class="form-row">
+    <div class="col-sm-12">
+      <label for="code">Code</label>
+      <input id="code" class="form-control" formControlName="custCode"
+        [ngClass]="{'is-invalid': customerForm.get('custCode').invalid && customerForm.get('custCode').dirty, 'is-valid': customerForm.get('custCode').valid}"
+        type="text" />
+      <div class="invalid-feedback">
+        Please input code
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <label for="name">Name</label>
+      <input id="name" class="form-control" type="text" formControlName="custName"
+        [ngClass]="{'is-invalid': customerForm.get('custName').invalid && customerForm.get('custName').dirty, 'is-valid': customerForm.get('custName').valid}" />
+      <div class="invalid-feedback">
+        Please input name.
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <label for="company">Company</label>
+      <select id="company" class="form-control" formControlName="compId">
+        <option *ngFor="let company of company$ | async" [value]="company._id">{{company.compName}}</option>
+      </select>
+    </div>
+    <div class="col-sm-12">
+      <button class="btn btn-primary" [ngClass]="{disabled: customerForm.invalid}"
+        [disabled]="customerForm.invalid">Save</button>
+    </div>
+  </div>
+</form>

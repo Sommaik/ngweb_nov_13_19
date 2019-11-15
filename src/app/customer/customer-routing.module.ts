@@ -10,6 +10,8 @@ const routes: Routes = [{
   path: 'list', component: CustomerListComponent
 }, {
   path: 'form', component: CustomerFormComponent
+}, {
+  path: 'form/:id', component: CustomerFormComponent
 }];
 
 @NgModule({

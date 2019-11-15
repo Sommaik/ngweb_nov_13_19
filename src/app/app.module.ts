@@ -24,7 +24,7 @@ import { AuthInterceptor } from './shared/interceptor/auth-interceptor';
     AdvFormComponent,
     HighlightDirective,
     TrimCreditCardPipe,
-    AdminComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
