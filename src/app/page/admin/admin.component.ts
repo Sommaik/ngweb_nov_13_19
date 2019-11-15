@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -9,9 +10,13 @@ export class AdminComponent implements OnInit {
 
   isCollapse = true;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  loadPage(page: string) {
+    this.router.navigate(['admin', page]);
   }
 
 }

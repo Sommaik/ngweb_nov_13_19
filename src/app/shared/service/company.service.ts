@@ -10,42 +10,28 @@ import { Company } from '../model/company';
 export class CompanyService {
 
   url: string;
-  authHeaders: any;
 
   constructor(private http: HttpClient) {
     this.url = `${environment.API_ENPOINT}/company`;
-    this.authHeaders = {
-      Authorization: `bearer ${sessionStorage.getItem('TOKEN')}`
-    };
   }
 
   findAll(): Observable<Company[]> {
-    return this.http.get<Company[]>(this.url, {
-      headers: this.authHeaders
-    });
+    return this.http.get<Company[]>(this.url);
   }
 
   add(company: Company): Observable<any> {
-    return this.http.post(this.url, company, {
-      headers: this.authHeaders
-    });
+    return this.http.post(this.url, company);
   }
 
   delete(id: string): Observable<any> {
-    return this.http.delete(`${this.url}/${id}`, {
-      headers: this.authHeaders
-    });
+    return this.http.delete(`${this.url}/${id}`);
   }
 
   findById(id: string): Observable<Company> {
-    return this.http.get<Company>(`${this.url}/findById/${id}`, {
-      headers: this.authHeaders
-    });
+    return this.http.get<Company>(`${this.url}/findById/${id}`);
   }
 
   update(id: string, company: Company): Observable<any> {
-    return this.http.put(`${this.url}/${id}`, company, {
-      headers: this.authHeaders
-    });
+    return this.http.put(`${this.url}/${id}`, company);
   }
 }
