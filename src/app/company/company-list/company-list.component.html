@@ -1,1 +1,12 @@
-<p>company-list works!</p>
+<table class="table">
+  <tr>
+    <th>No.</th>
+    <th>Code</th>
+    <th>Name</th>
+  </tr>
+  <tr *ngFor="let comp of companys | async; let index = index;">
+    <td>{{index + 1}}</td>
+    <td>{{comp.compCode}}</td>
+    <td>{{comp.compName}}</td>
+  </tr>
+</table>

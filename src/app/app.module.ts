@@ -13,7 +13,7 @@ import { TrimCreditCardPipe } from './shared/pipe/trim-credit-card.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AdminComponent } from './page/admin/admin.component';
-import { BsDropdownModule, BsDropdownDirective } from 'ngx-bootstrap';
+import { BsDropdownModule, BsDropdownDirective, CollapseModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import { BsDropdownModule, BsDropdownDirective } from 'ngx-bootstrap';
     HttpClientModule,
     ModalModule.forRoot(),
     BsDropdownModule.forRoot(),
+    CollapseModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
