@@ -10,10 +10,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdvFormComponent } from './page/adv-form/adv-form.component';
 import { HighlightDirective } from './shared/directive/highlight.directive';
 import { TrimCreditCardPipe } from './shared/pipe/trim-credit-card.pipe';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AdminComponent } from './page/admin/admin.component';
-import { BsDropdownModule, BsDropdownDirective, CollapseModule } from 'ngx-bootstrap';
+import { BsDropdownModule, CollapseModule } from 'ngx-bootstrap';
+import { AuthInterceptor } from './shared/interceptor/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { BsDropdownModule, BsDropdownDirective, CollapseModule } from 'ngx-boots
     AdvFormComponent,
     HighlightDirective,
     TrimCreditCardPipe,
-    AdminComponent
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +37,11 @@ import { BsDropdownModule, BsDropdownDirective, CollapseModule } from 'ngx-boots
     BsDropdownModule.forRoot(),
     CollapseModule.forRoot()
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

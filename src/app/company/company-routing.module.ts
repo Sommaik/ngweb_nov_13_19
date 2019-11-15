@@ -11,6 +11,8 @@ const routes: Routes = [{
 }, {
   path: 'form', component: CompanyFormComponent
 }, {
+  path: 'form/:id', component: CompanyFormComponent
+}, {
   path: 'list', component: CompanyListComponent
 }];
 
